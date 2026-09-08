@@ -17,9 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: Project_InsightUI
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,9 +26,11 @@ jobs:
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
+        working-directory: Project_InsightUI
 
       - name: Build static presentation
         run: bun run build
+        working-directory: Project_InsightUI
         env:
           GITHUB_PAGES: "true"
 
