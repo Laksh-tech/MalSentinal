@@ -110,7 +110,7 @@ export function Slide2Overview({ index, total }: { index: number; total: number 
               Upload an APK → get a risk score, predicted family and a human-readable reason.
             </p>
             <a
-              href="./demo/"
+              href="./#demo"
               className="slide-badge mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-primary-foreground transition-opacity hover:opacity-90"
             >
               ▶ TRY THE LIVE DEMO

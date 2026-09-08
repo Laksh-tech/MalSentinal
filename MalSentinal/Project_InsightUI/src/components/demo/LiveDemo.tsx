@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "@tanstack/react-router";
 
 // ---- Types ----
 type SampleId = "benign" | "trojan" | "adware";
@@ -230,12 +229,12 @@ export function LiveDemo() {
     <div className="grid-bg relative flex h-screen flex-col overflow-y-auto bg-background text-foreground">
       {/* Header */}
       <header className="flex items-center justify-between border-b border-border px-8 py-5">
-        <Link
-          to="/"
+        <a
+          href="./"
           className="inline-flex items-center gap-3 font-mono text-sm tracking-wider text-muted-foreground transition-colors hover:text-primary"
         >
           <span>←</span> BACK TO DECK
-        </Link>
+        </a>
         <div className="flex items-center gap-3 font-mono text-sm tracking-wider text-muted-foreground">
           <span className="h-2.5 w-2.5 rounded-full bg-primary" />
           MALSENTINAL · LIVE DEMO

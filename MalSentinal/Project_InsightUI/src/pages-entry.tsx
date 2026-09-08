@@ -1,6 +1,7 @@
-import { StrictMode } from "react";
+import { StrictMode, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Deck } from "./components/deck/Deck";
+import { LiveDemo } from "./components/demo/LiveDemo";
 import { Slide1Title } from "./slides/Slide1Title";
 import { Slide2Overview } from "./slides/Slide2Overview";
 import { Slide3Datasets } from "./slides/Slide3Datasets";
@@ -20,8 +21,20 @@ const slides = [
   <Slide7Next key="7" index={7} total={7} />,
 ];
 
+function PagesApp() {
+  const [showDemo, setShowDemo] = useState(() => window.location.hash === "#demo");
+
+  useEffect(() => {
+    const onHashChange = () => setShowDemo(window.location.hash === "#demo");
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  return showDemo ? <LiveDemo /> : <Deck slides={slides} />;
+}
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Deck slides={slides} />
+    <PagesApp />
   </StrictMode>,
 );
