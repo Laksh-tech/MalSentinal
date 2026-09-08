@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: Project_InsightUI
+        working-directory: MalSentinal/Project_InsightUI
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,7 +38,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: Project_InsightUI/dist/client
+          path: MalSentinal/Project_InsightUI/dist/client
 
   deploy:
     needs: build
