@@ -18,7 +18,7 @@ export default defineConfig(
     ? {
         // Static build for GitHub Pages: prerender "/" to HTML + nitro "static" (no server).
         tanstackStart: {
-          server: { entry: "server" },
+          server: { entry: "src/server" },
           prerender: { enabled: true, autoStaticPathsDiscovery: false },
           pages: [{ path: "/" }, { path: "/demo" }],
         },
@@ -27,7 +27,7 @@ export default defineConfig(
       }
     : {
         // Lovable preview: Cloudflare SSR, base "/" (defaults — unchanged from the template).
-        tanstackStart: { server: { entry: "server" } },
+        tanstackStart: { server: { entry: "src/server" } },
         vite: { base: "/" },
       },
 );
