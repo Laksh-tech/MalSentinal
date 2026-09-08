@@ -29,35 +29,13 @@ jobs:
         working-directory: MalSentinal/Project_InsightUI
 
       - name: Build static presentation
-        run: bun run build
+        run: bunx vite build --config pages.vite.config.ts
         working-directory: MalSentinal/Project_InsightUI
-        continue-on-error: true
-        env:
-          GITHUB_PAGES: "true"
-
-      - name: Prepare Pages artifact
-        working-directory: MalSentinal/Project_InsightUI
-        shell: bash
-        run: |
-          test -d .output/public
-          if [ ! -f .output/public/index.html ]; then
-            css=$(find .output/public/assets -maxdepth 1 -name '*.css' -printf '%f\n' | head -n 1)
-            scripts=$(find .output/public/assets -maxdepth 1 -name 'index-*.js' -printf '%f\n' | sort)
-            {
-              printf '%s\n' '<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-              printf '<link rel="stylesheet" href="./assets/%s">\n' "$css"
-              printf '%s\n' '</head><body><div id="root"></div>'
-              while IFS= read -r script; do
-                printf '<script type="module" src="./assets/%s"></script>\n' "$script"
-              done <<< "$scripts"
-              printf '%s\n' '</body></html>'
-            } > .output/public/index.html
-          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: MalSentinal/Project_InsightUI/.output/public
+          path: MalSentinal/Project_InsightUI/.pages-dist
 
   deploy:
     needs: build

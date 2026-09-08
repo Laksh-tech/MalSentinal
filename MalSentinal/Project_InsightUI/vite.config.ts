@@ -20,7 +20,7 @@ export default defineConfig(
         tanstackStart: {
           server: { entry: "src/server" },
           prerender: { enabled: true, autoStaticPathsDiscovery: false },
-          pages: [{ path: "/" }, { path: "/demo" }],
+          pages: [{ path: "/MalSentinal/" }, { path: "/MalSentinal/demo" }],
         },
         nitro: { preset: "static" },
         vite: { base: "/MalSentinal/" },
