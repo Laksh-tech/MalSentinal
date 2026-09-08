@@ -133,12 +133,12 @@ export function Slide6Results({ index, total }: { index: number; total: number }
             <Card className="flex-1">
               <div className="slide-kicker text-accent">READING THE RESULT</div>
               <p className="slide-body mt-4 text-muted-foreground">{v.note}</p>
-              <Link
-                to="/demo"
+              <a
+                href="./demo/"
                 className="slide-badge mt-5 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-primary-foreground transition-opacity hover:opacity-90"
               >
                 ▶ RUN THE MODEL LIVE
-              </Link>
+              </a>
             </Card>
             <Card>
               <div className="slide-kicker text-accent">WEAKEST CLASS</div>
