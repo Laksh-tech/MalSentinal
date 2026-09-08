@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { Card, Pill, SlideLayout } from "@/components/deck/SlideLayout";
 
 type Row = { cls: string; p: number; r: number; f1: number; support: number; prauc?: number };

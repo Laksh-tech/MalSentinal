@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { Card, Pill, SlideLayout } from "@/components/deck/SlideLayout";
 
 const steps = [
@@ -110,12 +109,12 @@ export function Slide2Overview({ index, total }: { index: number; total: number 
             <p className="slide-caption mt-6 text-muted-foreground">
               Upload an APK → get a risk score, predicted family and a human-readable reason.
             </p>
-            <Link
-              to="/demo"
+            <a
+              href="./demo/"
               className="slide-badge mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-primary-foreground transition-opacity hover:opacity-90"
             >
               ▶ TRY THE LIVE DEMO
-            </Link>
+            </a>
           </Card>
         </div>
       </div>
