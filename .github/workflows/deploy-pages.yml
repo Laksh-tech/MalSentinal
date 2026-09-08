@@ -26,18 +26,18 @@ jobs:
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
-        working-directory: Project_InsightUI
+        working-directory: MalSentinal/Project_InsightUI
 
       - name: Build static presentation
         run: bun run build
-        working-directory: Project_InsightUI
+        working-directory: MalSentinal/Project_InsightUI
         env:
           GITHUB_PAGES: "true"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: Project_InsightUI/dist/client
+          path: MalSentinal/Project_InsightUI/dist/client
 
   deploy:
     needs: build
